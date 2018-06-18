@@ -12,17 +12,19 @@ vector<float> minmaxstandard(vector<T> v)
 {
     if(v.size()==1) throw std::runtime_error("Not a range");
 
+    vector<float> v1(v.begin(),v.end());
+
     sort(v.begin(),v.end());
 
     float min = v.front();
     float max = v.back();
 
-    vector<float> v1(v.begin(),v.end());
 
     for(size_t i=0; i<v1.size(); i++)
     {
         v1[i] = (v1[i]-min)/(max-min)*(1-0)+0;
     }
+
     return v1;
 }
 
@@ -31,7 +33,7 @@ int main()
     vector<int> v = {8,10,15,20};
 
     ///Uncomment this part for custom input
-
+/*
         std::cout << "Enter T(size of array):";
         size_t n;
         std::cin >> n;
@@ -42,6 +44,7 @@ int main()
             std::cin >> v1[i];
 
     v = v1;
+*/
 
     auto vStandard = minmaxstandard(v);
 
